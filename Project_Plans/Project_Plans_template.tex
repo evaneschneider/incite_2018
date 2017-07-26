@@ -36,79 +36,88 @@
 
 \section{PROJECT PLANS FOR NEXT YEAR} 
 
-The project plans should address the points described below. {\bf This section is typically about 4 pages.} All visual materials, such as charts, graphs, pictures, etc., are included in the page limit; references are {\bf not} included in the page limit.  URLs that provide information related to the application should not be included. \\
+%The project plans should address the points described below. {\bf This section is typically about 4 pages.} All visual materials, such as charts, graphs, pictures, etc., are included in the page limit; references are {\bf not} included in the page limit.  URLs that provide information related to the application should not be included. \\
 
-Insert paragraph(s).
+%Insert paragraph(s).
 
 \subsection{Summarize the Project Plan} 
 
-Briefly explain what advances you expect to accomplish through the next award period and associate these with the overarching goals of your project. Clearly explain the relationships between the milestones, planned production simulations, and expected compute time required for these sets of simulations. Explain any change in the scope of the project (research objectives, computational approach, personnel, etc.) relative to the plans and approach articulated in the original proposal. If resource requirements differ from those of the previous year, provide details on the differences (platform, increased/decreased core-hours, file system and archival storage, networking) and the reasons for them. If you are requesting a new resource, you must provide evidence that your project is optimized to run on that resource. See the ``New Code Applications'' section below. Summarize the requirements that are driving the differences and what science/technology outcomes are expected. Significant changes to the original project scope should be discussed with the INCITE program manager prior to submittal.
+%Briefly explain what advances you expect to accomplish through the next award period and associate these with the overarching goals of your project. Clearly explain the relationships between the milestones, planned production simulations, and expected compute time required for these sets of simulations. Explain any change in the scope of the project (research objectives, computational approach, personnel, etc.) relative to the plans and approach articulated in the original proposal. If resource requirements differ from those of the previous year, provide details on the differences (platform, increased/decreased core-hours, file system and archival storage, networking) and the reasons for them. If you are requesting a new resource, you must provide evidence that your project is optimized to run on that resource. See the ``New Code Applications'' section below. Summarize the requirements that are driving the differences and what science/technology outcomes are expected. Significant changes to the original project scope should be discussed with the INCITE program manager prior to submittal.
 
-Insert paragraph(s).
+By the end of Year 1, we will have accomplished the first two of our three research objectives: simulating galactic outflows with supersonic velocities, and quantifying the importance of radiative cooling for the multiphase structure seen in those outflows. Our original proposal specified a single research objective for Year 2: to determine the mass and energy coupling of ISM gas to supernova-driven outflows. While this objective is concise, the computational requirements to achieve it will be more demanding than those from our Year 1 simulations, largely because the resolution requirements will be greater than those for our current set of production simulations. Additional preparatory work will also be required in Semester 3 of our program, in order to calibrate a more realistic supernova feedback model than that being used in our Semester 2 simulations.
 
-\subsubsection{Heading 3 (optional)}
+\subsubsection{Research Milestones}
 
-Insert paragraph(s).
+As originally envisioned, all of the production simulations from Semester 2 were going to be quadrants of a galaxy, because the computing time required would have been too great to carry out a global simulation according to our original calculations. However, two factors have made it possible to carry out global simulations in Semester 2. First, we are able to use a more efficient hydrodynamics algorithm than the one used in our estimated time for the original proposal. Second, the simulations do not need to run as long as we initially estimated in order to set up a steady-state wind. While our original proposal specified 400 Myr of evolution, we have found that 100 Myr is sufficient to see the properties of the wind evolve on a global scale.
 
-\subsection{Developmental Work} 
-
-Describe what, if any, developmental work has been carried out and the outcome of this work. Describe what additional development work will be executed, and when. Provide an estimate for the percentage of project time you will spend on developmental computing (e.g., porting, performance analysis) and other nonproduction runs.
-
-Insert paragraph(s).
-
-\subsection{New Code Applications (where relevant)} 
-
-Are you planning to use any new production codes next year that were not included in your original proposal? Or are you proposing use of a new resource not included in your original proposal? If so, provide direct evidence, including supporting quantitative data, for your production application’s parallel performance for the intended research simulations. Ideally, the proposing team will have generated the data. If you cite work by others, explain why it is applicable here. You should use the application code you intend for the production work, not a related code. Data for sample systems not related to the intended research is undesirable. Performance benchmarking should reflect all I/O requirements. Parallel performance data in either strong or weak scaling mode must be provided. Explain how the strong or weak scaling applies to the proposed work. 
-
-NOTE: You may apply for a startup account at one of the centers to conduct performance studies. Applications are available at
-
-ANL: {\href{http://www.alcf.anl.gov/getting-started/apply-for-dd}{http://www.alcf.anl.gov/getting-started/apply-for-dd}}
-
-ORNL: {\href{www.olcf.ornl.gov/support/getting-started/olcf-director-discretion-project-application}{www.olcf.ornl.gov/support/getting-started/olcf-director-discretion-project-application}}
-
-Insert paragraph(s).
-
-If included, call out equations, tables, figures, and references in numerical order in text, such as Eqs. (\ref{Eq. 1}) and (\ref{Eq. 2}), Table \ref{Tab1}, and Fig. \ref{Fig1} below.
-
-\begin{equation} \label{Eq. 1} 
-\partial ,\phi +u\cdot \nabla \phi =\nabla ^{2} \phi +\frac{1}{\tau } R\left(\phi \right)\, \, ,
-\end{equation} 
-
-
-\begin{equation} \label{Eq. 2} 
-\frac{\partial \phi }{\nabla \phi } =\frac{1}{2} \nabla ^{2} \phi \frac{e^{\frac{-R-R^{2} }{2u} } }{\left(2\tau \right)^{3N/2} } \sqrt{xyz} \, \, \sum 1+23\, \, \, . 
-\end{equation} 
+As a result, our original Research Milestone D: "Determine the role of full three-dimensionality on the velocity and density structure of galactic outflows" will be fulfilled by the simulations being carried out in Semester 2. Thus, we have restructured our milestone timeline somewhat, to better take advantage of the time awarded us in Year 1, and to progress through our proposed research objectives with an approach in which each builds naturally on the next. Despite this restructuring, our overall computational needs have not changed from the original proposal. Below we show the new set of Milestones for our project, along with their associated Research Objectives.
 
 \begin{table}[h]
-\centering
-\caption{Table title}
-\label{Tab1}
-\begin{tabular}{llll} \\ \hline 
-\textbf{Column one} & \textbf{Column two} & \textbf{Column three} & \textbf{Column four} \\ \hline 
- xxx & xxx\textit{${}^{a}$} & xxx & xxx \\ \hline 
-xxx & xxx & xxx & xxx \\ \hline 
-{\textit{$^{a}$}Footnote here.} \\
+%\centering
+\vspace{-.12in}
+\begin{tabular}{|l|p{4.6in}|l|} 
+\multicolumn{3}{l}{\bf{Table 1: Updated Research Milestones}}\\
+\hline
+\multicolumn{2}{|l|}{\bf Milestone} & {\bf Objective} \\ \hline
+\multicolumn{3}{|c|}{\it Year 1, Semester 1} \\ \hline
+\textbf{RM.A} & Create and test initial conditions for galactic disk simulations. & RO.A \\ \hline
+\textbf{RM.B} & Implement and calibrate feedback model for driving galactic outflows. & RO.A\\ \hline
+\multicolumn{3}{|c|}{\it Year 1, Semester 2} \\ \hline
+\textbf{RM.C} & Model the multiphase structure and radiative cooling of galactic
+outflows on $\sim10$kpc scales. & RO.A, RO.B \\ \hline
+\textbf{RM.D} & Determine the role of full three-dimensionality on the velocity and density
+structure of galactic outflows. & RO.A, RO.B\\ \hline
+\multicolumn{3}{|c|}{\it Year 2, Semester 1} \\ \hline
+\textbf{RM.E} & Implement and calibrate discrete supernova feedback model for driving galactic outflows & RO.A, RO.B\\ \hline
+\textbf{RM.F} & Model the multiphase structure and radiative cooling of galactic outflows on $\sim10$kpc scales, including driving by discrete supernovae.\\ \hline
+\multicolumn{3}{|c|}{\it Year 2, Semester 2} \\ \hline
+\textbf{RM.G} & Simulate galactic outflows at large dynamic range to generate {\it ab initio} $\sim10$kpc-scale winds from $\sim$pc-scale supernovae bubbles. & RO.A, RO.B, RO.C\\ 
+\hline
+\end{tabular}
+\end{table}
+
+Because we have restructured the timeline somewhat, we have updated set of proposed simulations for Year 2. In Table 2, we list the simulations that will be completed in Year 1 and 2, along with the research objectives and milestones being addressed by each. Note that the total allocation request has not changed for Year 2.
+
+\begin{table}[h]
+%\centering
+\vspace{-.12in}
+\begin{tabular}{|l|p{2.5in}|p{1in}|p{0.7in}|p{0.5in}|p{0.7in}|} 
+\multicolumn{6}{l}{\bf{Table 2: Research Simulations}}\\
+\hline
+\multicolumn{2}{|l|}{\bf Simulation Type and Details} & {\bf Objective / Milestone} & {\bf Resolution} & {\bf Titan Nodes} & {\bf Titan Core Hours} \\ \hline
+\multicolumn{6}{|c|}{\it Semester 1: 2M core hours} \\ \hline
+\textbf{RS.A} & Initial Conditions Test Simulations & RO.A & $N=1024^3$ &512&0.5M\\ \hline
+\textbf{RS.B} & Feedback Model Calibration Simulations & RO.A & $N=1024^2\times2048$ &1024&1.5M\\ \hline
+\multicolumn{6}{|c|}{\it Semester 2: 44M core hours} \\ \hline
+\textbf{RS.C} & Adiabatic Wind Simulation & RO.A, RO.B & $N=2048^2\times4096$ &8192&11M\\ \hline
+\textbf{RS.D} & 3 Radiative Wind Simulations & RO.A, RO.B & $N=2048^2\times4096$ &8192&33M\\ \hline
+\multicolumn{6}{|c|}{\it Semester 3: 22M core hours} \\ \hline
+\textbf{RS.F} & 2 Radiative Simulations with discrete SN feedback & RO.A, RO.B, RO.C & $N=2048^2\times4096$ &8192&36M\\ \hline
+\multicolumn{6}{|c|}{\it Semester 4: 32M core hours} \\ \hline
+\textbf{RS.G} & High-Res Radiative Simulation & RO.A, RO.B, RO.C & $N=4096^3$ &16,384&32M\\ \hline \hline
+&\multicolumn{4}{|l|}{Core Hour Budget for Analysis and Data Manipulation} & 5M\\ \hline
+\multicolumn{5}{|l|}{\bf Two-Year Program Total Titan Core Hour Request:} & {\bf 104M} \\ \hline
 \end{tabular}
 \end{table}
 
 
-\begin{figure}
-\centering
-\includegraphics[width=4.52in, height=3.08in, keepaspectratio=true]{image1.jpg}
-\caption{Figure caption.}
-\label{Fig1}
-\end{figure}
+\subsection{Developmental Work} 
 
-\subsubsection{Heading 3 (optional)}
+%Describe what, if any, developmental work has been carried out and the outcome of this work. Describe what additional development work will be executed, and when. Provide an estimate for the percentage of project time you will spend on developmental computing (e.g., porting, performance analysis) and other nonproduction runs.
 
-Insert paragraph(s).
+\textbf{RM.E: Discrete supernova feedback models}. We will implement and test two or more supernovae feedback models. The first model will input stochastic energy sources in 10pc � 10pc regions with a spatial sampling following the expected star formation rate density in the disk and a time sampling appropriate of averages over the lifetimes and initial mass function of massive stars in stellar clusters. Given that these supernova-heated regions will marginally resolve the size of the supernovae remnants as they enter the momentum-conserving phase, we will use the local density around the supernovae to estimate any missing momentum deposition and add that as a radially-diverging kinetic feedback. A second model will combine a smooth volumetric heating of the disk gas from a time-averaged supernovae rate with stochastic momentum feedback from star formation [40], which is expected to have a similar net effect. Given that the disk gas will be allowed to cool radiatively, heating from supernovae directly or secondary heating from supernova-driven turbulence will be required to maintain the observed disk thickness of M82. We will perform a series of resolution studies (RS.B) focused on the disk to verify the implementation of each feedback prescription, calibrate its efficiency to drive galactic winds, and develop yet further prescriptions if they prove unsuccessful. We have extensive experience implementing ISM and feedback models [62] that are widely used in galaxy simulations, and correspondingly this phase of the program poses little risk to our research objectives.
 
+\subsection{New Code Applications (where relevant)} 
 
-\begin{itemize}
-\setlength{\itemsep}{-14pt}
-\item Text \\ 
-\item Text \\
-\end{itemize} 
-\vspace{-.15in}
+%Are you planning to use any new production codes next year that were not included in your original proposal? Or are you proposing use of a new resource not included in your original proposal? If so, provide direct evidence, including supporting quantitative data, for your production application’s parallel performance for the intended research simulations. Ideally, the proposing team will have generated the data. If you cite work by others, explain why it is applicable here. You should use the application code you intend for the production work, not a related code. Data for sample systems not related to the intended research is undesirable. Performance benchmarking should reflect all I/O requirements. Parallel performance data in either strong or weak scaling mode must be provided. Explain how the strong or weak scaling applies to the proposed work. 
+
+%NOTE: You may apply for a startup account at one of the centers to conduct performance studies. Applications are available at
+
+%ANL: {\href{http://www.alcf.anl.gov/getting-started/apply-for-dd}{http://www.alcf.anl.gov/getting-started/apply-for-dd}}
+
+%ORNL: {\href{www.olcf.ornl.gov/support/getting-started/olcf-director-discretion-project-application}{www.olcf.ornl.gov/support/getting-started/olcf-director-discretion-project-application}}
+
+We do not plan to use any new codes in Year 2. We will continue to update and improve our primary hydrodynamics code, \textit{Cholla}, used to carry out all of the described simulations.
+
 
 \end{document}
