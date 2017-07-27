@@ -38,21 +38,39 @@
 
 %The project achievements should address the points described below. {\bf This section is typically about 10 pages.} All visual materials, such as charts, graphs, pictures, etc., are included in the page limit; references are {\bf not} included in the page limit. URLs that provide information related to the application should not be included.
 
-Semester 1 of our 2017 INCITE project, "Revealing the Physics of Galactic Winds with Petascale GPU Simulations" resulted in several notable achievements. First and foremost, the project has lead to the single largest hydrodynamic simulation of an isolated galaxy ever performed. With a volume containing over 17 trillion cells, our simulation dwarfs other simulations of this type by over an order of magnitude. In order to perform this simulation, our project utilized 8096 GPUs on \textit{Titan} for a total of $\sim$8 million core-hours. The simulation was the culmination of our work in Semester 1 which included generating specialized initial conditions for a stable galaxy model, implementing a supernova feedback scheme to drive a wind from the galaxy, and improving the hydrodynamics algorithms and other physics available in our GPU-based code \textit{Cholla}. Each of these accomplishments is described in further detail in the sections below.
+``Galactic winds'' are large-scale outflows of mass and momentum from galaxies, and are thought to originate from thermal pressure- or momentum-driven expansion of gas as a result of supernova explosions
+from the deaths of massive stars or other star formation-related feedback mechanisms. Almost all modern
+theories of galaxy formation invoke galactic winds to regulate the gas content of low-mass galaxies,
+keeping them faint and helping us to reconcile the meager abundance of dwarf galaxies relative to low-mass dark matter halos. Understanding galactic winds through simulations is extraordinarily difficult as the
+hydrodynamics, radiative cooling, and other physics of the winds must be well-resolved (on $\sim$ few parsec scales) everywhere in the flow that extends kiloparsecs above the galaxy before it merges with the circumgalactic medium. The linear dynamic range is therefore several hundreds or $\sim$ thousand, which nominally requires tens to hundreds of billions of cells over the volume surrounding the galactic disk
+to simulate. Since the winds consist of a multiphase medium that includes hot and cold components outflowing at high velocities, capturing all relevant hydrodynamical processes in the wind best addressed through enormous fixed-grid Eulerian simualtion methods.
+Our 2017 INCITE project "Revealing the Physics of Galactic Winds with Petascale GPU Simulations" is specifically designed to test the physical mechanisms that launch galactic-scale outflows and shape
+their observed properties by leveraging
+the unique power of \textit{Titan} and the cutting-edge technology of our GPU-native \textit{Cholla}
+code to simulate winds in global simulations of isolated galaxies.
+~\\~\\
+Semester 1 of our project (Jan-June 2017) resulted in several notable achievements. First and foremost, the project has lead to the single largest hydrodynamic simulation of an isolated galaxy (and asssociated galactic outflow) ever performed. With a volume containing over 18 billion cells, our simulation dwarfs others of this type by over an order of magnitude in computational elements -- a feat uniquely enabled by \textit{Titan}. In order to perform this simulation, the culmination of our work in Semester 1, our project utilized 8096 GPUs on \textit{Titan} for a total of $\sim$8 million core-hours. Our project activities in Semester 1 involved careful preparation for this simulation, including the generation and testing of specialized initial conditions featuring a stable gaseous disk galaxy in hydrostatic equilibrium, an implementation of a supernova feedback scheme to drive a galactic wind, and the improvement of performance,
+hydrodynamics algorithms, and other physical modules available in our \textit{Cholla} code. Each of these accomplishments is described in further detail in the sections below. These significant achievements
+now position us well to explore and characterize the physics of galactic winds through petascale simualtions
+on \textit{Titan}, as described in the Project Plans document.
 
 \subsection{Significance of Accomplishments to Date} 
 
 %Explain what advances you accomplished through the INCITE award (impact on community paradigms, valuable insights into or solving a long-standing challenge, etc.). Place the proposed research in the context of competing work in your discipline or business. Reiterate the milestones of your proposal and discuss the accomplishments (planned or unplanned) achieved this year relative to those milestones and allocation use (Section 1aii). Summarize the impact of the results achieved: What conclusions can be drawn, and what is solved because of these results? What new and follow-on investigations have these results motivated?
 
-Our 2016 INCITE proposal focused on the role that radiatively-cooling galactic winds may play in galaxy evolution. While observations routinely show fast ($v > 1000$ km/s), cool ($T\sim10^4$ K) winds being driven out of galaxies with high rates of star formation, numerical simulations of galaxies have thus far failed to reproduce them. Cosmological simulations lack the resolution required to generate the winds, and high-resolution simulations lack the volume to track gas once it has been driven out of the galaxy. Our project aims to bridge this gap by producing high resolution simulations of disk galaxies that span a sufficient distance from the wind-generation region within galaxies to demonstrate whether starburst-driven winds can cool in the manner suggested by recent theoretical work.
+Our original INCITE proposal focused on the role that radiatively-cooling galactic winds may play in galaxy evolution. While observations routinely show the presence of a fast ($v > 1000$ km/s) yet cool ($T\sim10^4$ K) component of winds being driven out of galaxies with high rates of star formation, numerical simulations of galaxies have thus far failed to reproduce them. Cosmological simulations lack the resolution required to capture correctly the multiphase structure of the winds, and high-resolution simulations of isolated disks have lacked the volume to track gas once it has been driven out of the galaxy. Recent theoretical work (Thompson et al. 2016) has suggested the cold components of the wind originate via radiative cooling
+if the wind is sufficiently dense such that its cooling time is shorter than the advection time of the
+wind as it leaves the galaxy.
+Our project aims to bridge the gap between previous cosmological and isolated disk simulations by producing high resolution simulations of disk galaxies that span a sufficient volume from the wind-generation region within the disk to demonstrate whether starburst-driven winds can cool radiatively and give rise to the 
+observed cold wind components.
 
-In order to carry out the simulations described in our proposal, a number of preparatory efforts were completed in the first semester. In Tables 1 and 2, we reproduce the research objectives and milestones from our 2016 proposal. We expand on the current status of each objective and related achievements in the following subsections.
+In order to carry out the simulations described in our proposal, a number of preparatory efforts were completed in the first semester. In Tables 1 and 2, we list the research objectives and milestones from our program's original INCITE proposal. We expand on the current status of each objective and related achievements in the following subsections.
 
 \begin{table}[h]
 %\centering
 \vspace{-.12in}
 \begin{tabular}{|l|l|} 
-\multicolumn{2}{l}{\bf{Table 1: Research Objectives}}\\
+\multicolumn{2}{l}{\bf{Table 1: INCITE Proposal Research Objectives}}\\
 \hline
 \textbf{RO.A} & Simulate galactic outflows with numerical models that allow for supersonic
 wind velocities. \\ \hline
@@ -68,7 +86,7 @@ for the multiphase structure of observed galactic outflows.\\ \hline
 %\centering
 \vspace{-.12in}
 \begin{tabular}{|l|p{4.6in}|l|} 
-\multicolumn{3}{l}{\bf{Table 2: Research Milestones}}\\
+\multicolumn{3}{l}{\bf{Table 2: INCITE Proposal Research Milestones}}\\
 \hline
 \multicolumn{2}{|l|}{\bf Milestone} & {\bf Objective} \\ \hline
 \multicolumn{3}{|c|}{\it Semester 1} \\ \hline
@@ -88,37 +106,92 @@ structure of galactic outflows. & RO.A, RO.B\\ \hline
 
 \subsubsection{Research Milestone A: Create and test initial conditions for galactic disk simulations}
 
-The first major accomplishment of our project is the successful creation of an initial conditions generator for our global galactic disk simulations. Implemented as a module in our code, \textit{Cholla}, the initial conditions for these simulations consist of a $10^4$ K isothermal gas disk that is placed in vertical hydrostatic equilibrium with a background potential. The background potential consists of a Miyamoto-Nagai disk that represents the gaseous and stellar components of the galaxy, plus a Navarro-Frenk-White halo profile that accounts for the dark matter contribution to the potential. The disk is initially set to be differentially rotating, with the velocity gradient balancing the radial pressure profile. In addition to a disk, our initial conditions also contain a gaseous halo. The halo is set to be in adiabatic hydrostatic equilibrium with the background potential, which prevents it from collapsing onto the disk.
-
+A first major accomplishment during Semester 1 of our project is the completion of Research Milestone A: the successful creation of an initial conditions generator for our global galactic disk simulations. The goal of the ICs generator was to 
+create realistic gaseous disks with the correct dynamical properties set to match real galaxies, while
+ensuring numerical stability in simulations with billions of cells.  
+In the global disk models we simulate, the dynamics of the model galaxies are set by the background
+gravitational potential that consists of a dark matter halo with a Navarro-Frenk-White density profile and
+an exponential disk representing the gravitational field generated by the gaseous and stellar components of the galaxy with a Miyamoto-Nagai potential. Given a chosen equation of state for the intestellar gas
+in the disk, the equation of hydrostatic equilibrium is solved by balancing the vertical gravitational force from the potential and the vertical pressure gradient generated by the density and pressure profile everywhere in the disk. The gas is initialized on to rotate differentially, with the radial velocity
+gradient balancing the radial pressure gradient resulting from the surface mass density distribution
+of the disk. Outside the disk, a spherical hot gaseous halo is added in hydrostatic equilibrium with the
+background potential to prevent the external gas from collapsing onto the disk. The initial conditions
+generator has been implemented as a module in our code \textit{Cholla}, such that the disk galaxy ICs
+can be selected at runtime without re-compiling the code. This feature enables additional flexibility
+in testing and validating physics models in idealized simulations before applying them to our global
+disk simulations.
+~\\~\\
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.35\linewidth]{MW_d.png}
 \includegraphics[width=0.35\linewidth]{MW_T.png}
-\caption{Figure caption.}
+\caption{Isolated Milky Way-like disk galaxy after 1 Gyr of evolution, simulated with
+512x512x1024 cells. Shown are the density (left) and temperature (right) projected
+in the x-y (upper) and x-z (lower) planes. The model includes a background gravitational
+potential for the dark matter halo and disk, a gaseous disk with an exponential surface
+mass density profile, and a hot gaseous halo in hydrostatic equilibrium. To test for
+the thermal and dynamical stability of the initial conditions, the wind driving mechanisms
+have been turned off. The galaxy
+is very stable over billion year timescales, more than sufficient for simulations
+of the launching of galactic-scale winds. The simulated evolution of smaller, M82-like galaxy
+shows comparable excellent performance. These initial conditions complete Research Milestone A listed in Table 1.}
 \label{fig:MW_ICs}
 \end{figure}
 
-We have created two versions of these initial conditions, one with parameters representative of a Milky-Way-like galaxy, and one with parameters that mimic those of the nearby starburst galaxy M82. An example of the Milky Way galaxy after 1 Gyr of evolution is shown in Figure \ref{fig:MW_ICs}. The left panels show projected gas density in the x-y and x-z planes, while the right panels show projected gas temperature. After many millions of years of evolution, the differential rotation of the gas in the disk leads to the spiral features that can be seen in the x-y density projection. A small amount of turbulence is generated on the surface of the disk due to the shear between disk and halo gas (only the disk gas is given an initial rotation). Otherwise, the disk and halo look almost identical to their initial setup.
-Adiabatic simulations using both versions of the initial conditions have demonstrated that they are stable for at least a gigayear, far longer than our wind simulations will be run. Compared to similar projects in the literature, our initial conditions are highly specialized (see e.g. Cooper et al. 2008, Fielding et al. 2017). Most models simply use an isothermal disk with no halo, or an isothermal halo. When experimenting with our initial conditions, we found that isothermal halo models were not stable over the long term. In addition, our simulations require the presence of an initial halo to determine the effect that swept-up hot halo gas may have on the evolution of galactic winds. Thus, our highly specialized initial conditions represent a necessary advancement of the field.
+We have used the initial conditions generator to create two carefully crafted galaxy models representing
+a Milky Way-like galaxy and a mimic of the nearby starburst galaxy M82 with a well-studied galactic wind.
+To test for thermal and dynamical stability, we have performed calibration simulations that
+evolve these galaxy models for many rotational in isolation and without including
+an engine for driving galactic winds. 
+A snapshot of the Milky Way model after 1 Gyr of evolution is shown in Figure \ref{fig:MW_ICs}. The left panels show projected gas density in the x-y and x-z planes, while the right panels show projected gas temperature. After many millions of years of evolution, the differential rotation of the gas in the disk leads to the minor spiral features that can be seen in the x-y density projection. A small amount of turbulence is generated on the surface of the disk due to the shear between disk and halo gas (only the disk gas is given an initial rotation). Otherwise, the disk and halo look almost identical to their initial setup and validate the physical realism of the initial conditions generator.
+Adiabatic simulations of the Milky Way and M82 initial conditions have demonstrated that they are both stable for at least a gigayear, far longer than the duration of our galactic wind simulations. Compared to similar projects in the literature, our initial conditions are considerably more realistic (see e.g. Cooper et al. 2008, Fielding et al. 2017). Most models simply use an isothermal disk with no halo, or an isothermal halo out of hydrostatic equilibrium -- we have verified in experimental calculations that
+simple isothermal halos lead to unphysical accretion onto the central disk, and that capturing the effects
+of halo gas swept by the wind requires physically realistic galaxy models like what we employ. We view these
+initial conditions a significant advancement in the physical realism of isolated galaxy models and the
+developmental work conducted through this program necessary for ensuring numerically stable galaxy
+models in simulations using many billions of cells.
 
 \subsubsection{Research Milestone B: Implement and calibrate feedback model for driving galactic outflows}
 
-The second major accomplishment of our program is a unique implementation of a supernova feedback model that will allow us to test the premise that supernova-driven winds can cool radiatively at large radii. The theoretical studies that our project aims to test are extensions to the 1985 supernova-driven wind model of Chevalier \& Clegg. This model, hereafter referred to as CC85, posits that a constant deposition of mass and energy within a spherical region in the center of a galaxy should result in a spherically-expanding flow of gas outward. Exact solutions for the density, velocity, and pressure of the wind can be calculated as a function of radius. Neither radiative cooling of the wind nor the effect of a gravitational potential are considered in the CC85 model. Despite this, X-ray observations indicate that the CC85 model is a good fit for the central region of the superwind in M82 (Strickland \& Heckman, 2009).
-
-More recent models have extended the CC85 model to include the effects of both gravity and radiative cooling (Wang 1995, Thompson 2016). These models suggest that given sufficient mass-loading of the hot wind, dramatic cooling can take place at radii 1 - 10 kpc from the wind-generation radius, which could account for the fast-moving, cool gas observed around starburst galaxies. In order to efficiently test this cooling model, we have created a supernova feedback model that matches the CC85 model as closely as possible. In Year 2, we will extend this model to incorporate more realistic versions of supernova feedback.
-
-Our current feedback model assumes a constant rate of mass and energy injection within the starburst radius, with the mass and energy injection set by three parameters: the star formation rate, the mass-loading factor, and the supernova thermalization efficiency. Our initial models use reasonable parameters for the past star formation rate, mass-loading, and supernova thermalization efficiency as calculated from observations of M82. The resulting wind can then be compared against the theoretically-calculated model, as shown in \ref{fig:CC85}.
+A second major accomplishment of our program is the completion of Research Milestone B: an original
+implementation of a supernova feedback model that will allow us to test the premise that supernova-driven winds can cool radiatively at large radii from the disk. The theoretical framework for modeling
+galactic winds analytically harkens to Chevalier \& Clegg (1985; CC85), who computed the radial density, velocity,
+and temperature profiles of a centrally-driven outflow in spherical symmetry. In CC85, the supernova
+feedback from the deaths of massive stars leads to an input of mass and energy at the center of the
+galaxy in a ``gain region'', resulting in a spherically-expanding flow of gas that
+eventually accelerates to a supersonic wind velocity. The CC85 model considers neither 
+the potential 
+radiative cooling of the wind nor the effect of a gravitational potential on the outflow dynamics.
+Despite this, X-ray observations indicate that the CC85 model is a good fit for the central region of the superwind in M82 (Strickland \& Heckman, 2009). More recent models have extended the CC85 model to include the effects of both gravity and radiative cooling (Wang 1995, Thompson 2016). These models suggest that given sufficient mass-loading of the hot wind, dramatic cooling can take place at radii 1 - 10 kpc from the wind-generation radius, which could account for the fast-moving, cool gas observed around starburst galaxies. The simulation of galactic-scale winds that led to the \textit{ab initio} formation of radiatively
+cooling outflows would represent a signficant scientific result in astrophysics, and serves as strong
+motivation for prior and continuing work of our INCITE program.
+~\\~\\
+In order to test effectively this picture for the physical origin of cold multiphase material in galactic
+winds, we have created a supernova feedback model that matches the CC85 model as closely as possible. 
+Our current feedback model assumes a constant rate of mass and energy injection within a starburst radius
+of the gain region, with the mass and energy injection set by three parameters: the star formation rate, the mass-loading factor, and the supernova thermalization efficiency. Our initial models use consistent
+values for the past star formation rate, mass-loading, and supernova thermalization efficiency as inferred from observations of M82. The resulting wind can then be compared against the theoretically-calculated model, as shown in Figure \ref{fig:CC85}. 
+~\\~\\
+Our fiducial feedback model used in the simulations of an M82-like galaxy uses a star formation rate of 
+20 $M_\odot$/yr, a mass-loading factor of $\beta = 1.4$ (the ratio of the mass in the hot wind to the
+mass expelled from supernovae into the interstellar medium), and a supernova thermalization efficiency of 
+$\alpha = 0.9$ (describing the fraction of supernovae energy thermalized into the internal energy of interstellar medium gas). Figure \ref{fig:CC85} displays the density, velocity, temperature, and pressure of the resulting wind as a function of radius. Plotted in Figure \ref{fig:CC85} are both the exact CC85 solution (black line), as well as the fluid properties measured along the $z$-axis of one of our galactic-scale outflow calibration simulations at 5 (blue), 15 (orange), and 25 Myr (green). In these simulations, we initialize the supernova feedback after 5 Myr, and the outflow quickly evolves from the initial conditions reflecting the structure of the gaseous disk and halo (blue line) to radial profiles
+at 15 and 25 Myr (shown as the orange and green lines) that match the CC85 solution (black) extremely
+closely. Indeed, the evolved models in Figure \ref{fig:CC85} are difficult to see because they lie \textit{directly} underneath the exact solution, demonstrating that within 10 million years, this feedback model has set up a stable wind with outflow parameters that match those expected from CC85. (Note that this is a simulation \textit{without} radiative cooling. Our results represent achievements both for the CC85 analytic model and our code \textit{Cholla}, and complete Research Milestone B.
+In Year 2, we will continue our on-going developmental work to extend our feedback model to incorporate more realistic versions of supernova feedback (see Project Plan).
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.8\linewidth]{CC85.png}
-\caption{Figure caption.}
+\caption{Radial density (upper left), velocity (upper right), temperature (lower left), and pressure (lower right profiles) of the analytical Chevalier \& Clegg (1985; CC85) model for the M82 galactic wind, and values measured from our 512x512x1024 test simulation with the \textit{Cholla} code (colored lines). 
+Although the initial conditions of the simulation start far away from the CC85 model (blue lines), the
+outflow properties quickly converge to the CC85 solution and maintain the solution over
+15 (orange) and 25 (green) timescales.}
 \label{fig:CC85}
 \end{figure}
 
-Our fiducial model uses a star formation rate of 20 $M_\odot$/yr, a mass-loading factor of $\beta = 1.4$, and a supernova thermalization efficiency of $\alpha = 0.9$. \ref{fig:CC85} displays the density, velocity, temperature, and pressure of the resulting wind as a function of radius. Plotted in this figure are both the exact solution (black line), as well as the values along the $z$-axis of one of our calibration simulations at 5, 15, and 25 Myr. We start the supernova feedback after 5 Myr, so the blue line is representative of the values of our initial conditions. The orange and green lines are difficult to detect, because they lie \textit{directly} underneath the exact solution, demonstrating that within 10 million years, this feedback model has set up a stable wind with outflow parameters that match those expected. (Note that this is a simulation \textit{without} radiative cooling. This figure represents an achievement both for the CC85 analytic model, as well as for our code \textit{Cholla}.
-
-As a control for our radiatively-cooling wind simulations, we have run a production-scale adiabatic simulation with these fiducial parameters. Our production simulation are run on grids with $2048\times2048\times2048$ cells, in a domain with dimensions 5 kpc $\times$ 5 kpc $\times$ 10 kpc, giving a resolution of 4.9 pc at all locations in the simulation volume. Density and temperature projections for this adiabatic control simulation after 30 million years of evolution are shown in Figure \ref{fig:adiabatic_2048}. The biconical outflow driven by the central energy and mass input is clearly visible in the temperature projection, as is the fall-off in temperature with radius due to the expansion of the flow. The energy injection has resulted in the blow-out of all of the gas from the central region of the disk. This simulation represents by far the largest hydrodynamic simulation of an isolated galaxy ever performed, and its hydrodynamic resolution tops that of even the current largest cosmological simulations (e.g. the IllustrisTNG simulation, Nelson 2017, which has $\sim$15.6 million hydrodynamic particles, vs. our $\sim$17.2 million cells). Thus, despite the fact that this is merely our control simulation, it represents a major achievement and technological milestone for our program.
+~\\
+As a control for our radiatively-cooling wind simulations, we have run a production-scale adiabatic simulation with our fiducial feedback model parameters. Our production simulations are run on grids with $2048\times2048\times4096$ cells, in a domain with dimensions 5 kpc $\times$ 5 kpc $\times$ 10 kpc, giving a resolution of $\Delta x=4.9$ pc at all locations in the simulation volume. Density and temperature projections for this adiabatic control simulation after 30 million years of evolution are shown in Figure \ref{fig:adiabatic_2048}. The biconical outflow driven by the central energy and mass input is clearly visible in the temperature projection, as is the fall-off in temperature with radius due to the expansion of the flow. The energy injection has resulted in the blow-out of all of the gas from the central region of the disk. This simulation represents by far the largest hydrodynamic simulation of an isolated galaxy ever performed, and its hydrodynamic resolution tops that of even the current largest cosmological simulations (e.g. the IllustrisTNG simulation by Springel et al. 2017, which has $\sim$15.6 billion hydrodynamic particles, vs. our $\gtrsim$18 billion cells). Thus, despite the fact that this is merely our control simulation, it represents a major achievement and technological milestone for our program.
 
 \begin{figure}[h]
 \centering
@@ -129,8 +202,9 @@ As a control for our radiatively-cooling wind simulations, we have run a product
 \caption{Figure caption.}
 \label{fig:adiabatic_2048}
 \end{figure}
-
-An advantage of our current simple feedback scheme is that it allows us to easily adjust the three parameters (SFR, mass-loading, and thermalization efficiency), in order to determine what range of parameters can cool on large scales. With our remaining 2017 allocation, we will be able to perform three production simulations with radiative cooling, that will explore the range of necessary mass-loading in order to achieve large-scale cooling in winds.
+~\\
+An advantage of our current simple feedback scheme is that it allows us to easily adjust the three feedback model parameters (star formation rate, mass-loading, and thermalization efficiency) to determine what range of parameters lead to galactic outflows that can cool on large scales. With our remaining 2017 allocation, we will be able to perform three production simulations with radiatively cooling physics that will explore the range of necessary mass-loading in order to enable the development of cold multiphase components in the
+galactic-scale outflows (see Project Plan for details).
 
 \subsubsection{Research Objective A: Simulate galactic outflows with numerical models that allow for supersonic wind velocities}
 
