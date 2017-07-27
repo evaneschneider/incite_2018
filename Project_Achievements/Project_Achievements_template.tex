@@ -245,7 +245,6 @@ outflow properties quickly converge to the CC85 solution and maintain the soluti
 
 ~\\
 As a control for our radiatively-cooling wind simulations, we have run a production-scale adiabatic simulation with our fiducial feedback model parameters. Our production simulations are run on grids with $2048\times2048\times4096$ cells, in a domain with dimensions 5 kpc $\times$ 5 kpc $\times$ 10 kpc, giving a resolution of $\Delta x=4.9$ pc at all locations in the simulation volume. Density and temperature projections for this adiabatic control simulation after 30 million years of evolution are shown in Figure \ref{fig:adiabatic_2048}. The biconical outflow driven by the central energy and mass input is clearly visible in the temperature projection, as is the fall-off in temperature with radius due to the expansion of the flow. The energy injection has resulted in the blow-out of all of the gas from the central region of the disk. This simulation represents by far the largest hydrodynamic simulation of an isolated galaxy ever performed, and its hydrodynamic resolution tops that of even large cosmological simulations (e.g. the IllustrisTNG simulation, see Nelson et al. 2017, which has $\sim$15.6 billion hydrodynamic particles, vs. our $\gtrsim$17 billion cells). Thus, despite the fact that this calculation is merely our control simulation, it represents a major achievement and technological milestone for our program.
-~\\~\\
 An advantage of our current simple feedback scheme is that it allows us to easily adjust the three feedback model parameters (star formation rate, mass-loading, and thermalization efficiency) to determine what range of parameters lead to galactic outflows that can cool on large scales. With our remaining 2017 allocation, we will be able to perform three production simulations with radiatively cooling physics that will explore the range of necessary mass-loading in order to enable the development of cold multiphase components in the
 galactic-scale outflows (see Project Plan for details).
 
@@ -258,14 +257,11 @@ for the outflows to diverge geometrically and develop a sonic point, we have dem
 
 \subsubsection{Research Milestone C: Model the multiphase structure and radiative cooling of galactic outflows on $\sim$10 kpc scales}
 
-Our 2016 INCITE proposal devoted Semester 2 to achieving Research Milestone C. As we are only a few weeks into Semester 2, we do not yet have most of the results, but we do have some early indications that the predictions of the theoretical models with radiative cooling will be born out in our production simulations. Figure \ref{fig:cooling_sim} shows the temperature in slices through the x-z plane for a calibration simulation (resolution $512\times512\times1024$ cells) with and without radiative cooling (left and right, respectively). Both snapshots show the simulations after 22 million years of evolution. While the cold interstellar disk is clearly visible on both simulations, the simulation with cooling also shows a large amount of gas between 2 - 5 kpc that has cooled to $10^4$ K where the physical cooling mechanisms
-become inefficient. Early analysis of this simulation suggests that the velocities of this cool gas may be consistent with observations, which would make these the first simulations to reproduce successfully gas in this phase in large-scale galactic winds. The exciting initial indications of successful simulations of
-radiatively cooling winds motivate the remainder of our calendar year 2017 work, and the renewal of the
+Our 2016 INCITE proposal devoted Semester 2 to achieving Research Milestone C. As we are only a few weeks into Semester 2, we do not yet have most of the results, but we do have some early indications that the predictions of the theoretical models with radiative cooling will be born out in our production simulations. Figure \ref{fig:cooling_sim} shows the temperature in slices through the x-z plane for a calibration simulation (resolution $512\times512\times1024$ cells) with and without radiative cooling (left and right, respectively). Both snapshots show the simulations after 22 million years of evolution. While the cold gaseous disk is clearly visible on both simulations, the simulation with cooling also shows a large amount of gas between 2 - 5 kpc that has cooled to $10^4$ K where the physical cooling mechanisms
+become inefficient. Early analysis of this simulation suggests that the velocities of this cool gas may be consistent with observations, which would make these the first simulations to reproduce successfully gas in this phase in large-scale galactic winds. The exciting indications of successful
+radiatively cooling wind simulations motivate the remainder of our calendar year 2017 work, and the renewal of the
 progam into 2018 as outlined in the Project Plan document.
-~\\~\\
-We are currently finalizing the feedback model parameters for our production-scale radiative cooling wind simulations. Once we have decided on the appropriate physical parameters, 
-we will run three production simulations with radiative cooling that will be compared with the adiabatic simulation presented in the previous section and thereby allow us to definitively answer the question posed by our Research Objective B: Quantify the importance of radiative cooling for the multiphase structure of observed galactic outflows. These production simulations will exhaust the remainder of our 2017 core-hour
-allocation, and set the stage for our work in 2018.
+
 
 \begin{figure}[H]
 \centering
@@ -290,6 +286,10 @@ wind structure of the Chevalier and Clegg (1985) analytical model (as demonstrat
 \label{fig:cooling_sim}
 \end{figure}
 
+~\\~\\
+We are currently finalizing the feedback model parameters for our production-scale radiative cooling wind simulations. Once we have decided on the appropriate physical parameters, 
+we will run three production simulations with radiative cooling that will be compared with the adiabatic simulation presented in the previous section and thereby allow us to definitively answer the question posed by our Research Objective B: Quantify the importance of radiative cooling for the multiphase structure of observed galactic outflows. These production simulations will exhaust the remainder of our 2017 core-hour
+allocation, and set the stage for our work in 2018.
 \subsection{Allocation Use} 
 
 %Summarize your project's allocation use to date this year: percent of allocated core-hours used on each platform, job size distribution, number of users, etc. Associate the resource use with particular results where possible. Also summarize your project's projected use from now until the end of December (i.e., end of current allocation year): anticipated percent of allocated core-hours used on each platform, job size distribution, etc. Associate this resource usage with anticipated results. Do you expect your usage to be evenly distributed throughout the remainder of this year? If not, explain.
