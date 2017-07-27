@@ -162,22 +162,16 @@ The majority of time spent thus far was used on the first of our Production Simu
 
 \subsection{Application Parallel Performance} 
 
-Summarize the performance (percent of peak, scalability) of your project's simulation tools used in the allocations this year. What progress was made in improving the application's performance on this architecture? What challenges (if any) remain? List the technical risks and challenges that were confronted by your project (overcome or not) this year. Were they anticipated?
-
-Insert paragraph(s).
-
-
-\subsubsection{Heading 3 (optional)}
-
-Insert paragraph(s).
+%Summarize the performance (percent of peak, scalability) of your project's simulation tools used in the allocations this year. What progress was made in improving the application's performance on this architecture? What challenges (if any) remain? List the technical risks and challenges that were confronted by your project (overcome or not) this year. Were they anticipated?
+Our primary tool, the hydrodynamics code \textit{Cholla}, was built natively to run on GPUs. The efficiency of the GPU kernels in \textit{Cholla} ranges from 10 - 20\%. As the code was being built, great care was taken to optimize it for the GPU architectures, but register pressure on the K20's currently limits the efficiency of most kernels. (This effect will be mitigated on newer GPU architectures that devote more registers / GPU - for example, our code runs 5x faster on the P100 vs K20x without any modification.) An additional 25\% of each timestep is spent on copying memory to and from the GPU, so we estimate that our overall performance (percent of peak) is around 10\%. The weak scaling of our code is quite good. A time step takes about 50\% longer when running on 8192 nodes vs. 16. The additional time is due entirely to the MPI communications, which, although optimized, are the only part of the code that does not scale perfectly. We have not run into any technical challenges in scaling \textit{Cholla} from dozens to thousands of nodes, a testament to the planning that went into construction of the code.
 
 
 \subsection{Data Storage} 
 
-What is the current cumulative size of stored data? What is your projection for the cumulative size of stored data at the end of the project? What tools and/or plans do you have to reduce the data? To share the data?
+%What is the current cumulative size of stored data? What is your projection for the cumulative size of stored data at the end of the project? What tools and/or plans do you have to reduce the data? To share the data?
+Our project is currently using about 40 terabytes of data storage. Each of the production simulations that will be run this semester is expected to fill about that much, so we anticipate needing $\sim$160 TB by the end of 2017. This gives us 100 full snapshots throughout the 100 million year evolution of the simulation. If necessary, we could reduce the frequency of output for the full grid. In an effort to reduce the amount of data required to be stored, we have written new routines in the code that output more frequent projections in several variables. This allows us to make high time resolution movies of the simulations, without accumulating nearly as much data (the size of the projected snapshots is negligible compared to the full grid). Our data storage needs for 2018 will be similar to this year's.
 
-Insert paragraph(s).
-
+Thus far, we have relied entirely on writing our own routines to reduce and analyze the data. This has been working well - all of the images shown in this proposal were made with our python-based analysis and visualization code. We are working on setting up a website to share movies and animations from our project. We will also share what data we can, but at present we do not have the resources to store 10's of terabytes at our home institutions. All of our code and analysis routines are already publicly available on github.
 
 \vspace{.08in}
 \textbf{REFERENCES (optional, not included in the page count)}
