@@ -102,14 +102,22 @@ The critical new capability afforded by our calculations is the reliable trackin
 ~\\~\\
 The Research Simulations supporting these objectives and enabling the milestones are include 
 2048x2048x4096 cell Radiative Cooling Simulations
-with discrete SN feedback (RS.F), incorporating
+with discrete SN feedback (RS.E), incorporating
 either a primarily ``thermal feedback'' or ``momentum feedback'' from supernova (see below), with the expectation that these
 models can lead to different mass and momentum loading, thermal energy, and ionization/phase structure in the wind.  These
 simulations will be performed at the same resolution as the Radiative Cooling (RS.D) simulations from 2017, allowing us to
 directly compare the idealized supernova feedback model from the 2017 efforts with more sophisticated models employed in
 2018 and see whether winds driven by individual supernova events differ substantially from winds driven by an engine
-supplying a constant mass and energy flux into the outflow.  Once the RS.F models have been analyzed, we will select
-one model to 
+supplying a constant mass and energy flux into the outflow.  Once the RS.E models have been analyzed, we will select
+one model for a High-Res Radiative Cooling Simulation with discrete SN feedback (RS.F) at 4096$^3$, a truly petascale simulation
+that we expect will require 16,384 GPUs and about 32M core hours to execute. This model will enable us to model with
+high fidelity both the detailed structure of the interstellar medium in the galactic disk, the mass and energy loading
+of the wind on $2-3$pc scales over $10$kpc regions, 
+and monitor the early phases of how the galactic wind launches. We believe such a 
+simulation is required to successfully achieve milestone RM.E, as the high-resolution in and above the disk enable
+us to simultaneously model the interstellar medium and multiphase galactic wind structures. The simulation will serve
+as a culmination of the entire project, and will provide a substantial science highlight for the \textit{Titan} facility.
+
 
 
 \begin{table}[h]
@@ -153,11 +161,11 @@ structure of galactic outflows (PARTIALLY COMPLETE). & RO.B\\ \hline
 \hline
 \multicolumn{2}{|l|}{\bf Simulation Type and Details} & {\bf Objective / Milestone} & {\bf Resolution} & {\bf Titan Nodes} & {\bf Titan Core Hours} \\ \hline
 \multicolumn{6}{|c|}{\it Semester 2: 33M core hours in 2017 (already allocated)} \\ \hline
-\textbf{RS.D} & 3 Radiatively Cooling Wind Simulations & RO.B, RM.C, RM.D & $N=2048^2\times4096$ &8192&33M\\ \hline
+\textbf{RS.D} & 3 Radiative Cooling Wind Simulations & RO.B, RM.C, RM.D & $N=2048^2\times4096$ &8192&33M\\ \hline
 \multicolumn{6}{|c|}{\it Semester 3 (2018): 22M core hours} \\ \hline
-\textbf{RS.F} & 2 Radiatively Cooling Simulations with discrete SN feedback & RO.B, RO.C, RM.D, RM.E & $N=2048^2\times4096$ &8192&22M\\ \hline
+\textbf{RS.E} & 2 Radiative Cooling Simulations with discrete SN feedback & RO.B, RO.C, RM.D, RM.E & $N=2048^2\times4096$ &8192&22M\\ \hline
 \multicolumn{6}{|c|}{\it Semester 4 (2018): 32M core hours} \\ \hline
-\textbf{RS.G} & High-Res Radiatively Cooling Simulation with discrete SN feedback& RO.B, RO.C, RM.D, RM.E & $N=4096^3$ &16,384&32M\\ \hline \hline
+\textbf{RS.F} & High-Res Radiative Cooling Simulation with discrete SN feedback& RO.B, RO.C, RM.D, RM.E & $N=4096^3$ &16,384&32M\\ \hline \hline
 &\multicolumn{4}{|l|}{Core Hour Budget for Analysis and Data Manipulation} & 5M\\ \hline
 \multicolumn{5}{|l|}{\bf Second Year Total Titan Core Hour Request (Unchanged):} & {\bf 54M} \\ \hline
 \end{tabular}
@@ -187,7 +195,7 @@ structure of galactic outflows (PARTIALLY COMPLETE). & RO.B\\ \hline
 %\end{tabular}
 %\end{table}
 
-Because we have restructured the timeline somewhat, we have updated set of proposed simulations for Year 2. In Table 2, we list the simulations that will be completed in Year 1 and 2, along with the research objectives and milestones being addressed by each. Note that the total allocation request has not changed for Year 2.
+%Because we have restructured the timeline somewhat, we have updated set of proposed simulations for Year 2. In Table 2, we list the simulations that will be completed in Year 1 and 2, along with the research objectives and milestones being addressed by each. Note that the total allocation request has not changed for Year 2.
 
 %\begin{table}[h]
 %\centering
@@ -218,18 +226,18 @@ Because we have restructured the timeline somewhat, we have updated set of propo
 
 %Describe what, if any, developmental work has been carried out and the outcome of this work. Describe what additional development work will be executed, and when. Provide an estimate for the percentage of project time you will spend on developmental computing (e.g., porting, performance analysis) and other nonproduction runs.
 
-DESCRIBE DEVELOPMENTAL WORK FROM 2017
-DESCRIBE SN MODEL WORK IN 2018
-ESTIMATE PROJECT TIME FOR DEVELOPMENTAL COMPUTING
-
-\begin{itemize}
-  \item Developmental work has been carried out?  What was the outcome?
-  \item Additional developmental work to be executed and when?
-  \item Estimate a percentage of project time spent on developmental computing?
-\end{itemize}
-
-For our radiatively cooling simulaitons with discrete SN feedback, we will implement and test two or more supernovae feedback models. The first model will input stochastic energy sources in 10pc x 10pc regions with a spatial sampling following the expected star formation rate density in the disk and a time sampling appropriate of averages over the lifetimes and initial mass function of massive stars in stellar clusters (e.g., Gentry et al. 2017). Given that these supernova-heated regions will marginally resolve the size of the supernovae remnants as they enter the momentum-conserving phase, we will use the local density around the supernovae to estimate any missing momentum deposition and add that as a radially-diverging kinetic feedback. A second model will combine a smooth volumetric heating of the disk gas from a time-averaged supernovae rate with stochastic momentum feedback from star formation (e.g., Ostriker et al. 2010), which is expected to have a similar net effect but may lead to differing temperature, momentum, and ionization structure in the wind. . 
-Given that the disk gas will be allowed to cool radiatively, heating from supernovae directly or secondary heating from supernova-driven turbulence will be required to maintain the observed disk thickness of M82. We will perform a small series of resolution studies focused on the disk to verify the implementation of each feedback prescription, calibrate its efficiency to drive galactic winds, and develop yet further prescriptions if they prove unsuccessful. We have extensive experience implementing ISM and feedback models (Robertson and Kravtsov 2008) that are widely used in galaxy simulations, and correspondingly this phase of the program poses little risk to our research objectives.
+In Semester 1 in 2017, we performed some developmental work to create the initial conditions generator for our isolated
+disk simulations, implement and test the supernovae feedback model for driving galactic winds, and test of the radiative
+cooling simulations. We also improved the hydrodynamical integration routines in \textit{Cholla}, making them more efficient
+and allowing us to jump directly to global disk simulations instead of our originally planned quadrant simulations. This
+developmental work was integrated into our original project timeline, and was refelected in our slow initial burn rate (as
+planned). 
+~\\~\\
+With the initial developmental work completed, the vast majority of our computational resources will be dedicated to peforming
+production scale simulations ($>95$\%). While our production resolution Radiative Cooling Wind Simulations (RS.D) are running on \textit{Titan}, we will pursue some additional developmental work during Semester 2 in 2017 (indeed, our plan would permit our entire 2017 allocation may be exhausted by October 2017 depending on the utilization of the \textit{Titan} queue). This developmental work will require $<5$\% of our computational resources.
+~\\~\\
+For our radiatively cooling simulations with discrete SN feedback (RS.E, RS.F), we will implement and test two or more supernovae feedback models. The first model will input stochastic energy sources in 10pc x 10pc regions with a spatial sampling following the expected star formation rate density in the disk and a time sampling appropriate of averages over the lifetimes and initial mass function of massive stars in stellar clusters (e.g., Gentry et al. 2017). Given that these supernova-heated regions will marginally resolve the size of the supernovae remnants as they enter the momentum-conserving phase, we will use the local density around the supernovae to estimate any missing momentum deposition and add that as a radially-diverging kinetic feedback. A second model will combine a smooth volumetric heating of the disk gas from a time-averaged supernovae rate with stochastic momentum feedback from star formation (e.g., Ostriker et al. 2010), which is expected to have a similar net effect but may lead to differing temperature, momentum, and ionization structure in the wind.
+Given that the disk gas will be allowed to cool radiatively, heating from supernovae directly or secondary heating from supernova-driven turbulence will be required to maintain the observed disk thickness of M82. We will perform a small series of resolution studies focused on the disk to verify the implementation of each feedback prescription, calibrate its efficiency to drive galactic winds, and develop yet further prescriptions if they prove unsuccessful. We have extensive experience implementing ISM and feedback models (Robertson and Kravtsov 2008) that are widely used in galaxy simulations, and correspondingly this phase of the program poses little risk to our research objectives. 
 
 \subsection{New Code Applications (where relevant)} 
 
