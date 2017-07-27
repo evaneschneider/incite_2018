@@ -208,11 +208,15 @@ galactic-scale outflows (see Project Plan for details).
 
 \subsubsection{Research Objective A: Simulate galactic outflows with numerical models that allow for supersonic wind velocities}
 
-With the completion of Research Milestones A and B in Semester 1, we have also demonstrated that we have achieved the first research objective of our INCITE program: to simulate galactic outflows with numerical models that allow for supersonic wind velocities. While theoretical models had indicated that these starburst-driven winds should achieve supersonic velocities, the planar geometries employed in previous studies prevented winds from crossing the sonic point (see discussion in Martizzi et al. 2016). By simulating winds on a global scale, we have demonstrated that not only can winds achieve supersonic velocities, but that in scenarios where the injection rates can be well-approximated by the CC85 model, the large-scale features of those winds can be well-approximated by theory. We now turn to a discussion of the radiatively-cooling wind models that are the focus of our research program.
+With the completion of Research Milestones A and B in Semester 1, we have achieved Research Objective A of our INCITE program: to simulate galactic outflows with numerical models that allow for supersonic wind velocities. While theoretical models had indicated that these starburst-driven winds should achieve supersonic velocities, the planar geometries employed in previous studies prevented winds from crossing the sonic point (see discussion in Martizzi et al. 2016). By simulating winds on a global scale that allow
+for the outflows to diverge geometrically and cross a sonic point, we have demonstrated that winds achieve supersonic velocities and that in scenarios where the injection rates can be well-approximated by the CC85 model the large-scale features of those winds can be well-approximated by the analytical CC85 theory. We now turn to a discussion of the radiatively-cooling wind models that are the focus of our research program.
 
 \subsubsection{Research Milestone C: Model the multiphase structure and radiative cooling of galactic outflows on $\sim$10 kpc scales}
 
-Our 2016 INCITE proposal devotes all of Semester 2 to achieving Research Milestone C. As we are only a few weeks into Semester 2, we do not yet have most of the results, but we do have some early indications that the predictions of the theoretical models with radiative cooling will be born out in our production simulations. Figure \ref{fig:cooling_sim} shows the temperature in slices through the x-z plane for a calibration simulation (resolution $512\times512\times1024$ cells) with and without radiative cooling (left and right, respectively). Both snapshots show the simulations after 22 million years of evolution. While the $10^4$ K disk is clearly visible on both simulations, the simulation with cooling also shows a large amount of gas between 2 - 5 kpc that has cooled to $10^4$ K. Early analysis of this simulation suggests that the velocities of this cool gas may be consistent with observations, which would make these the first simulations to successfully reproduce gas in this phase in large-scale galactic winds.
+Our 2016 INCITE proposal devotes all of Semester 2 to achieving Research Milestone C. As we are only a few weeks into Semester 2, we do not yet have most of the results, but we do have some early indications that the predictions of the theoretical models with radiative cooling will be born out in our production simulations. Figure \ref{fig:cooling_sim} shows the temperature in slices through the x-z plane for a calibration simulation (resolution $512\times512\times1024$ cells) with and without radiative cooling (left and right, respectively). Both snapshots show the simulations after 22 million years of evolution. While the cold interstellar disk is clearly visible on both simulations, the simulation with cooling also shows a large amount of gas between 2 - 5 kpc that has cooled to $10^4$ K where the physical cooling mechanisms
+become inefficient. Early analysis of this simulation suggests that the velocities of this cool gas may be consistent with observations, which would make these the first simulations to reproduce successfully gas in this phase in large-scale galactic winds. The exciting initial indications of successful simulations of
+radiatively cooling winds motivate the remainder of our calendar year 2017 work, and the renewal of the
+progam into 2018 as outlined in the Project Plan document.
 
 \begin{figure}[h]
 \centering
@@ -221,8 +225,10 @@ Our 2016 INCITE proposal devotes all of Semester 2 to achieving Research Milesto
 \caption{Figure caption.}
 \label{fig:cooling_sim}
 \end{figure}
-
-We are currently finalizing the parameters for our production-scale radiative cooling wind simulations. Once we have decided on the appropriate parameters, we will run three production simulations with radiative cooling, which when compared with the adiabatic simulation presented in the previous section, will allow us to definitively answer the question posed by our Research Objective B: Quantify the importance of radiative cooling for the multiphase structure of observed galactic outflows.
+~\\
+We are currently finalizing the feedback model parameters for our production-scale radiative cooling wind simulations. Once we have decided on the appropriate physical parameters, 
+we will run three production simulations with radiative cooling that will be compared with the adiabatic simulation presented in the previous section and thereby allow us to definitively answer the question posed by our Research Objective B: Quantify the importance of radiative cooling for the multiphase structure of observed galactic outflows. These production simulations will exhaust the remainder of our 2017 core-hour
+allocation, and set the stage for our work in 2018.
 
 \subsection{Allocation Use} 
 
