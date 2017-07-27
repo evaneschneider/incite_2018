@@ -65,7 +65,7 @@ Our project aims to bridge the gap between previous cosmological and isolated di
 observed cold wind components.
 
 In order to carry out the simulations described in our proposal, a number of preparatory efforts were completed in the first semester. In Tables 1 and 2, we list the research objectives and milestones from our program's original INCITE proposal. We expand on the current status of each objective and related achievements in the following subsections.
-
+~\\~\\
 \begin{table}[h]
 %\centering
 \vspace{-.12in}
@@ -242,7 +242,7 @@ The majority of time spent thus far was used on the first of our Production Simu
 \subsection{Application Parallel Performance} 
 
 %Summarize the performance (percent of peak, scalability) of your project's simulation tools used in the allocations this year. What progress was made in improving the application's performance on this architecture? What challenges (if any) remain? List the technical risks and challenges that were confronted by your project (overcome or not) this year. Were they anticipated?
-Our primary tool, the hydrodynamics code \textit{Cholla}, was built natively to run on GPUs. The efficiency of the GPU kernels in \textit{Cholla} ranges from 10 - 20\%. As the code was being built, great care was taken to optimize it for the GPU architectures, but register pressure on the K20's currently limits the efficiency of most kernels. (This effect will be mitigated on newer GPU architectures that devote more registers / GPU - for example, our code runs 5x faster on the P100 vs K20x without any modification.) An additional 25\% of each timestep is spent on copying memory to and from the GPU, so we estimate that our overall performance (percent of peak) is around 10\%. The weak scaling of our code is quite good. A time step takes about 50\% longer when running on 8192 nodes vs. 16. The additional time is due entirely to the MPI communications, which, although optimized, are the only part of the code that does not scale perfectly. We have not run into any technical challenges in scaling \textit{Cholla} from dozens to thousands of nodes, a testament to the planning that went into construction of the code.
+Our primary simulation tool, the hydrodynamics code \textit{Cholla}, was built natively to run on GPUs (Schneider \& Robertson, 2015). The efficiency of the GPU kernels in \textit{Cholla} ranges between 10 and 20\%. As the code was being built, great care was taken to optimize it for the GPU architectures, but register pressure on the K20's currently limits the efficiency of most kernels. (This effect will be mitigated on newer GPU architectures that devote more registers / GPU - for example, our code runs 5x faster on the P100 vs K20x without any modification.) An additional 25\% of each timestep is spent on copying memory to and from the GPU, so we estimate that our overall performance (percent of peak) is around 10\%. The weak scaling of our code is quite good. A time step takes about 50\% longer when running on 8192 nodes vs. 16. The additional time is due entirely to the MPI communications, which, although optimized, are the only part of the code that does not scale perfectly. We have not run into any technical challenges in scaling \textit{Cholla} from dozens to thousands of nodes, a testament to the planning that went into construction of the code.
 
 
 \subsection{Data Storage} 
